@@ -46,7 +46,7 @@ jobs:
   deploy:
     needs: test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' || github.ref == 'refs/heads/develop'
     
     steps:
     - name: Checkout code
@@ -75,3 +75,7 @@ jobs:
         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
         working-directory: ./backend
         vercel-args: '--prod'
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        NODE_ENV: production
