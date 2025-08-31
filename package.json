@@ -1,0 +1,36 @@
+{
+  "name": "logistics-issue-tracker",
+  "version": "1.0.0",
+  "description": "Enterprise Logistics Delivery Issue Tracking API",
+  "private": true,
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "build": "cd backend && npm run build",
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "test": "cd backend && npm test",
+    "deploy": "cd backend && vercel --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOUR_USERNAME/logistics-issue-tracker.git"
+  },
+  "keywords": [
+    "logistics",
+    "delivery",
+    "issue-tracking",
+    "api",
+    "enterprise",
+    "nodejs",
+    "express",
+    "typescript",
+    "prisma",
+    "postgresql"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/logistics-issue-tracker/issues"
+  },
+  "homepage": "https://github.com/YOUR_USERNAME/logistics-issue-tracker#readme"
+}
