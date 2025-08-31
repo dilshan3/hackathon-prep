@@ -34,7 +34,7 @@ jobs:
     - name: Build project
       run: |
         cd backend
-        npm run build
+        npm run vercel-build
         
     - name: Test build
       run: |
