@@ -1,14 +1,15 @@
 {
-  "version": 2,
-  "installCommand": "cd backend && npm install",
-  "buildCommand": "cd backend && npm run build && npm run db:generate",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
+    "version": 2,
+    "functions": {
+      "api/index.js": { "runtime": "nodejs18.x" }
+    },
+    "routes": [
+      { "src": "/(.*)", "dest": "/api/index.js" }
+    ],
+    "buildCommand": "npm run build && npm run db:generate",
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "regions": ["iad1"]
   }
-}
+  
