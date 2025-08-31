@@ -1,14 +1,19 @@
 {
   "version": 2,
-  "installCommand": "cd backend && npm install",
-  "buildCommand": "cd backend && npm run build:vercel && npm run db:generate",
-  "outputDirectory": "public",
-  "rewrites": [
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": "/api"
+      "src": "backend/src/index.ts",
+      "use": "@vercel/node"
     }
   ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/backend/src/index.ts"
+    }
+  ],
+  "installCommand": "cd backend && npm install",
+  "buildCommand": "cd backend && npm run db:generate",
   "env": {
     "NODE_ENV": "production"
   },

@@ -5,5 +5,10 @@ const path = require('path');
 const app = require('../backend/dist/app.js').default;
 
 module.exports = (req, res) => {
-  return app(req, res);
+  try {
+    return app(req, res);
+  } catch (error) {
+    console.error('API Error:', error);
+    res.status(500).json({ error: 'Internal Server Error', message: error.message });
+  }
 };
