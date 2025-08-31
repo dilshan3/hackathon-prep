@@ -1,21 +1,15 @@
 {
   "version": 2,
-  "builds": [
+  "installCommand": "npm install",
+  "buildCommand": "npm run build && npm run db:generate",
+  "rewrites": [
     {
-      "src": "src/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "src/index.ts"
+      "source": "/(.*)",
+      "destination": "/api"
     }
   ],
   "env": {
     "NODE_ENV": "production"
   },
-  "regions": ["iad1"],
-  "installCommand": "npm install",
-  "buildCommand": "npm run build && npm run db:generate"
+  "regions": ["iad1"]
 }

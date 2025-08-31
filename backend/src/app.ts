@@ -91,4 +91,6 @@ app.use(notFoundHandler);
 // Global error handler (must be last)
 app.use(errorHandler);
 
+// Export both the app and a function for serverless
 export default app;
+export const createServer = () => app;
