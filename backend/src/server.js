@@ -10,6 +10,9 @@ const { errorHandler } = require('./lib/errors');
 
 const app = express();
 
+// Trust proxy for serverless environments (Vercel)
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet({
   contentSecurityPolicy: {
@@ -35,6 +38,13 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+// Custom key generator for rate limiting in serverless environments
+const keyGenerator = (req) => {
+  // Use X-Forwarded-For header if available, otherwise use IP
+  const ip = req.headers['x-forwarded-for'] || req.ip || req.connection.remoteAddress;
+  return ip ? ip.split(',')[0].trim() : 'unknown';
+};
+
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -45,6 +55,11 @@ const limiter = rateLimit({
   },
   standardHeaders: true,
   legacyHeaders: false,
+  keyGenerator: keyGenerator,
+  skip: (req) => {
+    // Skip rate limiting for health checks
+    return req.path === '/health';
+  }
 });
 
 // Auth rate limiting (stricter)
@@ -57,6 +72,7 @@ const authLimiter = rateLimit({
   },
   standardHeaders: true,
   legacyHeaders: false,
+  keyGenerator: keyGenerator
 });
 
 app.use(limiter);
