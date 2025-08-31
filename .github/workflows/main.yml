@@ -30,11 +30,15 @@ jobs:
       run: |
         cd backend
         npx prisma generate
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
         
     - name: Build project
       run: |
         cd backend
         npm run build
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
         
     - name: Test build
       run: |
@@ -68,6 +72,8 @@ jobs:
       run: |
         cd backend
         npx prisma generate
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
         
     - name: Deploy to Vercel
       uses: amondnet/vercel-action@v25
