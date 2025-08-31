@@ -6,8 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "dev": "vercel dev",
-    "build": "echo 'Starting build...' && (prisma generate || echo 'Prisma generate failed, continuing...') && echo 'Build completed'",
-    "vercel-build": "echo 'Starting Vercel build...' && (prisma generate || echo 'Prisma generate failed, continuing...') && echo 'Vercel build completed'",
+    "build": "prisma generate",
+    "vercel-build": "prisma generate",
     "deploy": "vercel --prod",
     "test": "node test-simple.js",
     "test:api": "bash test-api.sh",
