@@ -83,6 +83,8 @@ jobs:
         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
         working-directory: ./backend
         vercel-args: '--prod'
+        alias-domains: |
+          logistics-issue-tracker-o9q9dztpu.vercel.app
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
