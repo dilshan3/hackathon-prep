@@ -1,0 +1,38 @@
+{
+  "name": "delivery-issue-tracker-backend",
+  "version": "1.0.0",
+  "description": "Last-Mile Delivery Issue Tracker Backend API",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "prisma generate",
+    "deploy": "vercel --prod",
+    "test": "echo \"No tests specified yet\" && exit 0",
+    "test:api": "bash test-api.sh",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:generate": "prisma generate",
+    "db:studio": "prisma studio",
+    "db:seed": "node scripts/seed.js",
+    "db:reset": "prisma migrate reset --force"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "serverless-http": "^3.2.0",
+    "@prisma/client": "^5.7.0",
+    "prisma": "^5.7.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "zod": "^3.22.4",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
