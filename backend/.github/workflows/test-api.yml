@@ -5,7 +5,7 @@ on:
     workflows: ["Deploy to Vercel"]
     types:
       - completed
-    branches: [ main, master ]
+    branches: [ main, develop ]
 
 jobs:
   test-api:
