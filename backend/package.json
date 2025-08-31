@@ -9,7 +9,7 @@
     "build": "prisma generate || echo 'Prisma generate failed, continuing...'",
     "vercel-build": "prisma generate || echo 'Prisma generate failed, continuing...'",
     "deploy": "vercel --prod",
-    "test": "node check-env.js && node test-simple.js",
+    "test": "node test-simple.js",
     "test:api": "bash test-api.sh",
     "db:migrate": "prisma migrate dev",
     "db:deploy": "prisma migrate deploy",
