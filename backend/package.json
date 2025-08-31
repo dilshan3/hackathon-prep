@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vercel dev",
     "build": "prisma generate",
+    "vercel-build": "prisma generate",
     "deploy": "vercel --prod",
     "test": "echo \"No tests specified yet\" && exit 0",
     "test:api": "bash test-api.sh",
