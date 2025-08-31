@@ -5,6 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "build:vercel": "tsc && npm run create-public",
+    "create-public": "node -e \"const fs = require('fs'); const path = require('path'); const publicDir = path.join('..', 'public'); if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, {recursive: true}); fs.writeFileSync(path.join(publicDir, 'api-status.json'), JSON.stringify({status: 'API Ready', timestamp: new Date().toISOString()}));\"",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
     "test": "jest",
